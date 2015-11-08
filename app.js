@@ -13,16 +13,20 @@ app.filter('to_trusted', ['$sce', function($sce){
 app.config(function($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl : 'views/points.html',
-            controller  : 'PointsController'
+            templateUrl : 'views/members.html',
+            controller  : 'MembersController'
+        })
+        .when('/members', {
+            templateUrl : 'views/members.html',
+            controller  : 'MembersController'
         })
         .when('/tabling', {
             templateUrl : 'views/tabling.html',
             controller  : 'TablingController'
         })
-        .when('/bb', {
-            templateUrl : 'views/bb.html',
-            controller  : 'BBController'
+        .when('/points', {
+            templateUrl : 'views/points.html',
+            controller  : 'PointsController'
         })
         .otherwise({
           'redirect_to': '/'
