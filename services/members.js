@@ -6,6 +6,12 @@ app.service("MemberService",  function($http) {
                 callback(data);
             });
     };
+    serviceInstance.getMemberHash = function(callback){
+        $http.get(tokenizedURL(ROOT_URL+'/member_email_hash'))
+            .success(function(data){
+                callback(data);
+            });
+    };
     serviceInstance.getCommitteeHash = function(data){
         h = {};
         seen = new Set();

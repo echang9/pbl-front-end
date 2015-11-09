@@ -1,2 +1,13 @@
-<h1>Points</h1>
-{{message}}
+<h1>Points V2</h1>
+
+<div ng-show = 'myPoints == null'>
+  Pulling points data...
+</div>
+
+<div ng-show = 'myPoints != null'>
+  <h2>You have {{myPoints.points}} Points</h2>
+  <h2>Attendance</h2>
+  <div ng-repeat = 'event in myPoints.attendance'>
+    {{event.name}}: {{event.points}}
+  </div>
+</div>

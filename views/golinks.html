@@ -1,0 +1,29 @@
+<h1>Go Links</h1>
+
+<div ng-show = 'golinks == null'>
+  Pulling golinks...
+</div>
+<div ng-show = 'golinks != null'>
+  <table class = 'table table-condensed'>
+    <thead>
+      <th></th>
+      <th>Key</th>
+      <th>Added By</th>
+      <th>Timestamp</th>
+    </thead> 
+    <tbody>
+      <tr ng-repeat = 'golink in golinks'>
+        <td></td>
+        <td>
+          <a href = '{{golink.url}}'>
+            {{golink.key}}
+          </a>
+          <span ng-show = 'golink.description != "" && golink.description != null'>: {{golink.description}}</span>
+         
+        </td>
+        <td>{{golink.member_email}}</td>
+        <td>{{golink.createdAt}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

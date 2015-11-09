@@ -7,11 +7,14 @@
 
 <h1>Members</h1>
 
+<div ng-show = 'committeeHash == null'>
+  Pulling member data...
+</div>
+
 <div ng-show = 'committeeHash != null'>
-  
   <div ng-repeat = 'committee in committees'>
     <h2>{{committee}}</h2>
-    <table class = 'table table-condensed table-striped'>
+    <table class = 'table table-condensed'>
       <thead>
         <th>Name</th>
         <th> Committee </th>

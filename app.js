@@ -13,12 +13,16 @@ app.filter('to_trusted', ['$sce', function($sce){
 app.config(function($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl : 'views/members.html',
-            controller  : 'MembersController'
+            templateUrl : 'views/home.html',
+            controller  : 'HomeController'
         })
         .when('/members', {
             templateUrl : 'views/members.html',
             controller  : 'MembersController'
+        })
+        .when('/golinks', {
+            templateUrl : 'views/golinks.html',
+            controller  : 'GoController'
         })
         .when('/tabling', {
             templateUrl : 'views/tabling.html',
@@ -28,12 +32,17 @@ app.config(function($routeProvider) {
             templateUrl : 'views/points.html',
             controller  : 'PointsController'
         })
+        .when('/blog', {
+            templateUrl : 'views/blog.html',
+            controller  : 'BlogController'
+        })
         .otherwise({
           'redirect_to': '/'
         });
 });
 
 function tokenizedURL(url){
+  return url;
     if(url.indexOf('?') != -1){
         tokenized = url + '&token='+token;
     }
