@@ -3,3 +3,16 @@ body{
   margin-left:50px !important;
   margin-right:50px !important;
 }
+
+.navbar.navbar, .navbar-default.navbar{
+  background-color:black !important;
+}
+.navbar-nav>li>a{
+  color:white !important;
+}
+.navbar .navbar-brand{
+  color:white !important;
+}
+a, a:hover, a:focus{
+  color:#337ab7 !important;
+}
