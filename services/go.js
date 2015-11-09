@@ -1,6 +1,16 @@
 
 app.service("GoService",  function($http) {
     var serviceInstance = {};
+    serviceInstance.recentGolinks = function(callback){
+      query = new Parse.Query(Golink);
+      query.limit(MAXINT);
+      query.descending('num_clicks');
+      query.find({
+        success: function(data){
+          callback(data);
+        }
+      });
+    };
     serviceInstance.getRecentGolinks = function(callback){
         $http.get(tokenizedURL(ROOT_URL+'/recent_golinks'))
             .success(function(data){

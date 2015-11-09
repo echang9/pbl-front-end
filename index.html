@@ -1,19 +1,25 @@
 <html>
 
 <head>
-
+<meta name="google-signin-client_id" content='158145275272-lj3m0j741dj9fp50rticq48vtrfu59jj.apps.googleusercontent.com'>
   <title>Frontend</title>
  <link rel="shortcut icon" type="image/x-icon" href="./logo.png" />
   <!--styles-->
   <link rel = 'stylesheet' href = 'main.css'>
   <link rel = 'stylesheet' href = './lib/bootstrap.min.css'>
   <link rel = 'stylesheet' href = './lib/material-fullpalette.min.css'>
-
+  
+  <script src = './config.js'></script>
+  <!--<script src = './lib/hello.all.min.js'></script>-->
+  <script src = './lib/platform.js'></script>
   <!--angular-->
   <script src = './lib/angular.min.js'></script>
   <script src = './lib/angular-route.js'></script>
 
   <script src = './lib/md5.min.js'></script>
+
+  <!--parse-->
+  <script src = './lib/parse-1.6.7.min.js'></script>
  <!--main js script -->
   <script src = 'app.js'></script>
 
@@ -24,6 +30,7 @@
   <script src = './services/blog.js'></script>
   <script src = './services/points.js'></script>
   <script src = './services/utils.js'></script>
+  <script src = './services/parse.js'></script>
 
   <!--controllers-->
   <script src = './controllers/home.js'></script>
@@ -33,6 +40,7 @@
   <script src = './controllers/addGolink.js'></script>
   <script src = './controllers/blog.js'></script>
   <script src = './controllers/points.js'></script>
+  <script src = './controllers/parse.js'></script>
 
 </head>
 
@@ -65,12 +73,16 @@
         <li><a href="#/blog">Blog</a></li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Login</a></li>
-      </ul>
+      <div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href = 'javascript:void(0)'>Login</a></li>
+        </ul>
+      </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <a href="#" onclick="signOut();">Sign out</a>
   <div ng-view=''></div> 
 <footer class="footer" >
 <div class="container">

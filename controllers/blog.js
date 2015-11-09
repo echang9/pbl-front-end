@@ -4,8 +4,9 @@ app.controller('BlogController', function($scope, $http, BlogService, UtilServic
   $scope.loading = false;
   $scope.message = 'hi there from blog controller';
   function init(){
-    BlogService.getAllBlogposts(function(data){
+    BlogService.allPosts(function(data){
       $scope.posts = data;
+      $scope.$digest();
     });
   }
   init();
