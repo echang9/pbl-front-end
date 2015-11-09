@@ -1,9 +1,18 @@
 
-app.controller('GoController', function($scope, $http, GoService) {
+app.controller('GoController', function($scope, $http, GoService, UtilService) {
+  $scope.loadingGif = UtilService.loadingGif;
+  $scope.loading=false;
   $scope.message = 'hi there from go controller';
   function init(){
     GoService.getRecentGolinks(function(data){
       $scope.golinks = data;
+    });
+  }
+  $scope.searchGolinks = function(searchTerm){
+    $scope.loading = true;
+    GoService.searchGolinks(searchTerm, function(data){
+      $scope.golinks = data;
+      $scope.loading=false;
     });
   }
   init();

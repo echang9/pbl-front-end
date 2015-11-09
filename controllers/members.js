@@ -1,5 +1,5 @@
 
-app.controller('MembersController', function($scope, $http, MemberService) {
+app.controller('MembersController', function($scope, $http, MemberService, UtilService) {
   function init(){
     MemberService.getCurrentMembers(function(data){
       $scope.currentMembers = data;
@@ -9,6 +9,9 @@ app.controller('MembersController', function($scope, $http, MemberService) {
   }
   $scope.message = 'hi from members controller';
   $scope.currentMembers = [];
+  $scope.gravatarUrl = function(member){
+    return UtilService.gravatarUrl(member);
+  }
   init();
-  
+  $scope.loadingGif = UtilService.loadingGif; 
 });

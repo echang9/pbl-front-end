@@ -8,14 +8,16 @@
 <h1>Members</h1>
 
 <div ng-show = 'committeeHash == null'>
+  <img src = '{{loadingGif}}' class = 'loading-gif'>
   Pulling member data...
 </div>
 
 <div ng-show = 'committeeHash != null'>
   <div ng-repeat = 'committee in committees'>
     <h2>{{committee}}</h2>
-    <table class = 'table table-condensed'>
+    <table class = 'table table-hover table-mc-light-blue'>
       <thead>
+        <th></th>
         <th>Name</th>
         <th> Committee </th>
         <th> Role </th>
@@ -26,6 +28,7 @@
       </thead>
       <tbody>
         <tr ng-repeat = 'member in committeeHash[committee]'>
+          <td><img src = '{{gravatarUrl(member)}}' class = 'profile-img-small'></td>
           <td>{{member.name}}</td>
           <td>{{member.committee}}</td>
           <td>{{member.role}}</td>

@@ -1,8 +1,13 @@
 <h1>Tabling</h1>
-<div ng-show = 'memberHash == null || tablingSlots == null'>Pulling tabling data...</div>
+
+<div ng-show = 'memberHash == null || tablingSlots == null'>
+  <img src = '{{loadingGif}}' class = 'loading-gif'>
+  Pulling tabling data...</div>
 <div id = 'tablingSchedule' ng-show='memberHash != null && tablingSlots != null'>
-    <div ng-repeat = 'slot in tablingSlots | orderBy:time'>
+    <div class = 'tabling-slot' ng-repeat = 'slot in tablingSlots | orderBy:time'>
         <div class = 'label label-primary'>{{slot.time}}</div>
-        <div ng-repeat = 'email in slot.member_emails'>{{memberHash[email].name}}</div>
+        <div ng-repeat = 'email in slot.member_emails'>
+          <img src='{{gravatarUrl(memberHash[email])}}' class = 'profile-img-small'>
+          {{memberHash[email].name}}</div>
     </div>
 </div>

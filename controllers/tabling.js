@@ -1,5 +1,5 @@
 
-app.controller('TablingController', function($scope, $http, TablingService, MemberService) {
+app.controller('TablingController', function($scope, $http, TablingService, MemberService, UtilService) {
   function init(){
     TablingService.getTablingSchedule(function(data){
       console.log(data);
@@ -13,4 +13,6 @@ app.controller('TablingController', function($scope, $http, TablingService, Memb
   }
   init();
   $scope.message = 'hi from tabling';
+  $scope.loadingGif = UtilService.loadingGif;
+  $scope.gravatarUrl = UtilService.gravatarUrl;
 });

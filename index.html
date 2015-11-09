@@ -13,6 +13,7 @@
   <script src = './lib/angular.min.js'></script>
   <script src = './lib/angular-route.js'></script>
 
+  <script src = './lib/md5.min.js'></script>
  <!--main js script -->
   <script src = 'app.js'></script>
 
@@ -22,6 +23,7 @@
   <script src = './services/tabling.js'></script>
   <script src = './services/blog.js'></script>
   <script src = './services/points.js'></script>
+  <script src = './services/utils.js'></script>
 
   <!--controllers-->
   <script src = './controllers/home.js'></script>
@@ -45,15 +47,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Frontend</a>
+      <a class="navbar-brand" href="#">
+        <span><img src = './logo.png' style = 'height:35px'></span>
+        <span> Frontend </span>
+      </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="#/members">Members</a></li>
         <li><a href="#/golinks">PBL Links</a></li>
+        <li><a href="#/members">Members</a></li>
         <li><a href="#/points">Points</a></li>
         <li><a href="#/tabling">Tabling</a></li>
         <li><a href="#/blog">Blog</a></li>
@@ -66,6 +71,10 @@
   </div><!-- /.container-fluid -->
 </nav>
   <div ng-view=''></div> 
-
+<footer class="footer">
+<div class="container">
+  <p class="text-muted">Created by WD</p>
+        </div>
+</footer>
 </body>
 </html>

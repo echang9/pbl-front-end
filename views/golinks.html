@@ -1,29 +1,31 @@
+<style type = 'text/css'>
+.centered{
+  text-align:center;
+}
+.golink-div{
+  margin-bottom:5px;
+}
+#search-input{
+  max-width:300px;
+}
+</style>
 <h1>Go Links</h1>
 
-<div ng-show = 'golinks == null'>
+<input ng-keypress = '($event.which === 13)?searchGolinks(searchTerm):0' ng-model = 'searchTerm' type = 'text' class = 'form-control' placeholder = 'search' id = 'search-input'>
+
+<div ng-show = 'golinks == null || loading == true'>
+  <img src = '{{loadingGif}}' class = 'loading-gif'>
   Pulling golinks...
 </div>
-<div ng-show = 'golinks != null'>
-  <table class = 'table table-condensed'>
-    <thead>
-      <th></th>
-      <th>Key</th>
-      <th>Added By</th>
-      <th>Timestamp</th>
-    </thead> 
-    <tbody>
-      <tr ng-repeat = 'golink in golinks'>
-        <td></td>
-        <td>
-          <a href = '{{golink.url}}'>
-            {{golink.key}}
-          </a>
-          <span ng-show = 'golink.description != "" && golink.description != null'>: {{golink.description}}</span>
-         
-        </td>
-        <td>{{golink.member_email}}</td>
-        <td>{{golink.createdAt}}</td>
-      </tr>
-    </tbody>
-  </table>
+
+<div class = '' ng-show = 'golinks != null'>
+  <div class = 'golink-div' ng-repeat = 'golink in golinks'>
+    <div><a href = '{{golink.url}}'>{{golink.key}}</a> {{golink.description}} ({{golink.num_clicks}})</div>
+    <div>Created by {{golink.member_email}} at  {{golink.createdAt}}</div>
+  </div>
+
+  <!--pagination-->
+  <div class = 'pagination-div'>
+    <a href = '#'>Pagination not implemented...</a>
+  </div>
 </div>
