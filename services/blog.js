@@ -1,7 +1,7 @@
 
 app.service("BlogService",  function($http) {
     var serviceInstance = {};
-    serviceInstance.allPosts = function(callback){
+    serviceInstance.getAllBlogposts = function(callback){
       query = new Parse.Query(Blog);
       query.limit(MAXINT);
       query.descending('updatedAt');
@@ -11,7 +11,7 @@ app.service("BlogService",  function($http) {
         }
       });
     }
-    serviceInstance.getAllBlogposts = function(callback){
+    serviceInstance.allPosts = function(callback){
         $http.get(tokenizedURL(ROOT_URL+'/all_blogposts'))
             .success(function(data){
                 callback(data);

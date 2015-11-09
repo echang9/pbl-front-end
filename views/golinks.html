@@ -21,12 +21,7 @@
 <a href = '#/addGolink'><button class = 'btn btn-material-blue-500'>Add Link</button></a>
 <div class = '' ng-show = 'golinks != null'>
   <div class = 'golink-div' ng-repeat = 'golink in golinks'>
-    <div><a href = '{{golink.get("url")}}'>{{golink.get("key")}}</a> {{golink.get("description")}} ({{golink.get("num_clicks")}})</div>
-    <div>Created by {{golink.get("member_email")}} at  {{golink.get("createdAt")}}</div>
-  </div>
-
-  <!--pagination-->
-  <div class = 'pagination-div'>
-    <a href = '#'>Pagination not implemented...</a>
+    <div><a href = '{{golink.url}}'>{{golink.key}}</a> {{golink.description}} ({{golink.num_clicks}})</div>
+    <div>Created by {{golink.member_email}} at  {{golink.createdAt}}</div>
   </div>
 </div>

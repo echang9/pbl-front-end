@@ -12,6 +12,5 @@ app.controller('GoController', function($scope, $http, GoService, UtilService) {
   }
   GoService.recentGolinks(function(data){
     $scope.golinks = data;
-    $scope.$digest();
   });
 });

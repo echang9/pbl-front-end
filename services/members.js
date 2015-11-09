@@ -1,6 +1,6 @@
 app.service("MemberService",  function($http) {
     var serviceInstance = {};
-    serviceInstance.currentMembers = function(callback){
+    serviceInstance.parseCurrentMembers = function(callback){
       query = new Parse.Query(Member);
       query.limit(MAXINT);
       query.equalTo('latest_semester', CURRENT_SEMESTER);
@@ -11,7 +11,7 @@ app.service("MemberService",  function($http) {
       });
     }
 
-    serviceInstance.memberHash = function(callback){
+    serviceInstance.parseMemberHash = function(callback){
       query = new Parse.Query(Member);
       query.limit(MAXINT);
       query.exists('email');
@@ -27,13 +27,13 @@ app.service("MemberService",  function($http) {
       });
     }
     // below are using PBL API
-    serviceInstance.getCurrentMembers = function(callback){
+    serviceInstance.currentMembers = function(callback){
         $http.get(tokenizedURL(ROOT_URL+'/current_members'))
             .success(function(data){
                 callback(data);
             });
     };
-    serviceInstance.getMemberHash = function(callback){
+    serviceInstance.memberHash = function(callback){
         $http.get(tokenizedURL(ROOT_URL+'/member_email_hash'))
             .success(function(data){
                 callback(data);

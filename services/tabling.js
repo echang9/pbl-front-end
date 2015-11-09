@@ -2,8 +2,16 @@
 
 app.service("TablingService",  function($http) {
     var serviceInstance = {};
-  
     serviceInstance.getTablingSchedule = function(callback){
+      query = new Parse.Query(TablingSlot);
+      query.limit(MAXINT);
+      query.find({
+        success:function(data){
+         callback(data); 
+        }
+      });
+    }; 
+    serviceInstance.tablingSlots = function(callback){
         $http.get(tokenizedURL(ROOT_URL+'/tabling_slots'))
             .success(function(data){
                 callback(data);

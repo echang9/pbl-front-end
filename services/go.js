@@ -1,7 +1,8 @@
 
 app.service("GoService",  function($http) {
     var serviceInstance = {};
-    serviceInstance.recentGolinks = function(callback){
+    // parse 
+    serviceInstance.getRecentGolinks = function(callback){
       query = new Parse.Query(Golink);
       query.limit(MAXINT);
       query.descending('num_clicks');
@@ -11,7 +12,8 @@ app.service("GoService",  function($http) {
         }
       });
     };
-    serviceInstance.getRecentGolinks = function(callback){
+
+    serviceInstance.recentGolinks = function(callback){
         $http.get(tokenizedURL(ROOT_URL+'/recent_golinks'))
             .success(function(data){
                 callback(data);
