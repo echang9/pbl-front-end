@@ -2,6 +2,7 @@
 # PBL Frontend
 
 Frontend of PBL's members portal
+![PBL Logo](./logo.png)
 
 ## Dependencies
 
