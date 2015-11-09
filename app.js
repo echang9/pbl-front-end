@@ -20,10 +20,6 @@ app.config(function($routeProvider) {
             templateUrl : 'views/members.html',
             controller  : 'MembersController'
         })
-        .when('/golinks', {
-            templateUrl : 'views/golinks.html',
-            controller  : 'GoController'
-        })
         .when('/tabling', {
             templateUrl : 'views/tabling.html',
             controller  : 'TablingController'
@@ -35,6 +31,14 @@ app.config(function($routeProvider) {
         .when('/blog', {
             templateUrl : 'views/blog.html',
             controller  : 'BlogController'
+        })
+        .when('/golinks', {
+            templateUrl : 'views/golinks.html',
+            controller  : 'GoController'
+        })
+        .when('/addGolink', {
+            templateUrl : 'views/addGolink.html',
+            controller  : 'AddGolinkController'
         })
         .otherwise({
           'redirect_to': '/'

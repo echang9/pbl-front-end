@@ -18,6 +18,7 @@
   Pulling golinks...
 </div>
 
+<a href = '#/addGolink'><button class = 'btn btn-material-blue-500'>Add Link</button></a>
 <div class = '' ng-show = 'golinks != null'>
   <div class = 'golink-div' ng-repeat = 'golink in golinks'>
     <div><a href = '{{golink.url}}'>{{golink.key}}</a> {{golink.description}} ({{golink.num_clicks}})</div>

@@ -1,7 +1,7 @@
 
 app.service("UtilService",  function($http) {
   var serviceInstance = {};
-  serviceInstance.loadingGif ='https://mmstatic.thcdn.com/4.00.152.8858/img/ajax-loader7.gif'; 
+  serviceInstance.loadingGif ='./images/loading-gif.gif';
   serviceInstance.gravatarUrl = function(member){
     if( member.facebook_url != null && member.facebook_url != ''){
       return member.facebook_url;

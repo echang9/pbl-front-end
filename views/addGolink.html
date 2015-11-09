@@ -1,0 +1,24 @@
+
+<h1>Add PBL Link</h1>
+
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">pbl.link/</span>
+  <input type="text" class="form-control" ng-model = 'key' placeholder="key" aria-describedby="basic-addon1">
+</div>
+
+
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon2">redirects to</span>
+  <input type="text" class="form-control" ng-model = 'url' placeholder="url" aria-describedby="basic-addon2">
+</div>
+
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon3">description</span>
+  <input type="text" class="form-control" ng-model = 'description' placeholder="description" aria-describedby="basic-addon3">
+</div>
+
+
+<div ng-show = 'loading == true'>
+  <img src = '{{loadingGif}}' class = 'loading-gif'>
+</div>
+<button class = 'btn btn-material-blue-500' ng-click = 'saveGolink()'>Save Link</button>

@@ -9,9 +9,7 @@ app.controller('MembersController', function($scope, $http, MemberService, UtilS
   }
   $scope.message = 'hi from members controller';
   $scope.currentMembers = [];
-  $scope.gravatarUrl = function(member){
-    return UtilService.gravatarUrl(member);
-  }
+  $scope.gravatarUrl = UtilService.gravatarUrl;
   init();
   $scope.loadingGif = UtilService.loadingGif; 
 });
