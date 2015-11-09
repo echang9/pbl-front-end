@@ -26,6 +26,8 @@ see ./lib
 - see tokenizedURL method
 - convention: api requests all in ./services
 
+# TODO
+Fancify everything
 
 
 
