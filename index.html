@@ -1,16 +1,17 @@
 <html>
 
 <head>
-<meta name="google-signin-client_id" content='158145275272-lj3m0j741dj9fp50rticq48vtrfu59jj.apps.googleusercontent.com'>
   <title>Frontend</title>
  <link rel="shortcut icon" type="image/x-icon" href="./logo.png" />
   <!--styles-->
   <link rel = 'stylesheet' href = 'main.css'>
   <link rel = 'stylesheet' href = './lib/bootstrap.min.css'>
   <link rel = 'stylesheet' href = './lib/material-fullpalette.min.css'>
-  
+
+  <!--jquery-->
+  <script src = './lib/jquery.min.js'></script>
+
   <script src = './config.js'></script>
-  <!--<script src = './lib/hello.all.min.js'></script>-->
   <script src = './lib/platform.js'></script>
   <!--angular-->
   <script src = './lib/angular.min.js'></script>
@@ -56,7 +57,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="#/">
         <span><img src = './logo.png' style = 'height:35px'></span>
         <span> Frontend </span>
       </a>
@@ -65,24 +66,23 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="#/golinks">PBL Links</a></li>
-        <li><a href="#/members">Members</a></li>
-        <li><a href="#/points">Points</a></li>
-        <li><a href="#/tabling">Tabling</a></li>
-        <li><a href="#/blog">Blog</a></li>
+        <li><a class = 'nav-link' href="#/golinks">PBL Links</a></li>
+        <li><a class = 'nav-link' href="#/members">Members</a></li>
+        <li><a class = 'nav-link' href="#/points">Points</a></li>
+        <li><a class = 'nav-link' href="#/tabling">Tabling</a></li>
+        <li><a class = 'nav-link' href="#/blog">Blog</a></li>
       </ul>
 
       <div>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href = 'javascript:void(0)'>Login</a></li>
+          <li><a href = 'javascript:void(0)' onclick = 'toggleLogin()' id = 'linout'>Login</a></li>
         </ul>
       </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-  <div class="g-signin2" data-onsuccess="onSignIn"></div>
-  <a href="#" onclick="signOut();">Sign out</a>
+  <!--<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
+  <!--<a href="#" onclick="signOut();">Sign out</a>-->
   <div ng-view=''></div> 
 <footer class="footer" >
 <div class="container">

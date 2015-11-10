@@ -1,7 +1,3 @@
-
-
 app.controller('HomeController', function($scope, $http) {
-  function init(){
-  }
-  init();
+  $scope.message = 'welcome to pbl frontend';
 });

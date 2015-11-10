@@ -1,7 +1,13 @@
 <style type = 'text/css'>
-.member-div{
-  border:1px solid black;
-    border-bottom:none;
+.committee-div{
+  float: left;
+  border:1px solid rgba(0,0,0,0.1);
+  margin:10px;
+  padding:10px;
+    width:350px;
+  height:400px;
+  overflow:auto;
+
 }
 </style>
 
@@ -13,31 +19,42 @@
 </div>
 
 <div ng-show = 'committeeHash != null'>
-  <div ng-repeat = 'committee in committees'>
+  <div class = 'committee-div' ng-repeat = 'committee in committees'>
     <h2>{{committee}}</h2>
-    <table class = 'table table-hover table-mc-light-blue'>
-      <thead>
-        <th></th>
-        <th>Name</th>
-        <th> Committee </th>
-        <th> Role </th>
-        <th> Email </th>
-        <th> Phone </th>
-        <th> Year </th>
-        <th> Major </th>
-      </thead>
-      <tbody>
-        <tr ng-repeat = 'member in committeeHash[committee]'>
-          <td><img src = '{{gravatarUrl(member)}}' class = 'profile-img-small'></td>
-          <td>{{member.name}}</td>
-          <td>{{member.committee}}</td>
-          <td>{{member.role}}</td>
-          <td>{{member.email}}</td>
-          <td>{{member.phone}}</td>
-          <td>{{member.year}}</td>
-          <td>{{member.major}}</td>
-        </tr>
-    </table>
+    <div class = 'member-div' ng-repeat = 'member in committeeHash[committee]'>
+      <div><img src = '{{gravatarUrl(member)}}' class = 'profile-img-small'> {{member.name}} ({{member.position}})</div>
+      <ul>
+        <li>{{member.email}}</li>
+        <li>{{member.phone}}</li>
+        <li>{{member.year}} year {{member.major}}</li>
+      </ul>
+    </div>
+    
+  </div>
+    <!--<h2>{{committee}}</h2>-->
+    <!--<table class = 'table table-hover table-mc-light-blue'>-->
+      <!--<thead>-->
+        <!--<th></th>-->
+        <!--<th>Name</th>-->
+        <!--<th> Committee </th>-->
+        <!--<th> Role </th>-->
+        <!--<th> Email </th>-->
+        <!--<th> Phone </th>-->
+        <!--<th> Year </th>-->
+        <!--<th> Major </th>-->
+      <!--</thead>-->
+      <!--<tbody>-->
+        <!--<tr ng-repeat = 'member in committeeHash[committee]'>-->
+          <!--<td><img src = '{{gravatarUrl(member)}}' class = 'profile-img-small'></td>-->
+          <!--<td>{{member.name}}</td>-->
+          <!--<td>{{member.committee}}</td>-->
+          <!--<td>{{member.role}}</td>-->
+          <!--<td>{{member.email}}</td>-->
+          <!--<td>{{member.phone}}</td>-->
+          <!--<td>{{member.year}}</td>-->
+          <!--<td>{{member.major}}</td>-->
+        <!--</tr>-->
+    <!--</table>-->
   </div>
   
 
