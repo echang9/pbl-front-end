@@ -10,4 +10,7 @@ app.controller('BlogController', function($scope, $http, BlogService, UtilServic
     });
   }
   init();
+  $scope.filterPost = function(post){
+    $scope.searchTerm = post.title;
+  }
 });

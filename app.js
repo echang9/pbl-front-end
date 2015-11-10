@@ -21,7 +21,7 @@ app.filter('to_trusted', ['$sce', function($sce){
 }]);
 
 // google platform auth
-var authEmail = null;
+var authEmail = 'davidbliu@gmail.com';
 var token = '';
 
 function onLoad() {
@@ -102,6 +102,10 @@ app.config(function($routeProvider) {
         .when('/parse', {
             templateUrl : 'views/parse.html',
             controller  : 'ParseController'
+        })
+        .when('/attendance', {
+            templateUrl : 'views/attendance.html',
+            controller  : 'AttendanceController'
         })
         .otherwise({
           'redirect_to': '/'

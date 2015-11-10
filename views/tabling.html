@@ -5,7 +5,7 @@
 </div>
 
 <div id = 'tablingSchedule' ng-show='memberHash != null && tablingSlots != null'>
-    <div class = 'tabling-slot' ng-repeat = 'slot in tablingSlots'>
+    <div class = 'tabling-slot' ng-repeat = 'slot in tablingSlots | orderBy:"time"'>
         <div class = 'label label-primary'>{{slot.time}}</div>
         <div ng-repeat = 'email in slot.member_emails'>
           {{memberHash[email].name}}

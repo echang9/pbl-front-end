@@ -5,14 +5,16 @@
   margin:10px;
   padding:10px;
     width:350px;
-  height:400px;
+  max-height:400px;
   overflow:auto;
-
+}
+#search-input{
+  width:300px;
 }
 </style>
 
 <h1>Members</h1>
-
+<input type = 'text' class = 'form-control' placeholder = 'Search Members' id = 'search-input' ng-model = 'searchTerm'>
 <div ng-show = 'committeeHash == null'>
   <img src = '{{loadingGif}}' class = 'loading-gif'>
   Pulling member data...
@@ -21,7 +23,7 @@
 <div ng-show = 'committeeHash != null'>
   <div class = 'committee-div' ng-repeat = 'committee in committees'>
     <h2>{{committee}}</h2>
-    <div class = 'member-div' ng-repeat = 'member in committeeHash[committee]'>
+    <div class = 'member-div' ng-repeat = 'member in committeeHash[committee] | filter:searchTerm'>
       <div><img src = '{{gravatarUrl(member)}}' class = 'profile-img-small'> {{member.name}} ({{member.position}})</div>
       <ul>
         <li>{{member.email}}</li>
