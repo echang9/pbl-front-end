@@ -2,7 +2,7 @@
 
 <head>
   <title>Frontend</title>
- <link rel="shortcut icon" type="image/x-icon" href="./logo.png" />
+ <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png" />
 
   <!--styles-->
   <link rel = 'stylesheet' href = 'main.css'>
@@ -11,6 +11,9 @@
 
   <!--jquery-->
   <script src = './lib/jquery.min.js'></script>
+
+  <!--tinymce-->
+  <script src = '//tinymce.cachefly.net/4.2/tinymce.min.js'></script>
 
   <!--authentication and config-->
   <script src = './config.js'></script>
@@ -26,6 +29,7 @@
   <script src = './lib/parse-1.6.7.min.js'></script>
 
  <!--main js script -->
+  <script src = 'auth.js'></script>
   <script src = 'app.js'></script>
 
   <!--services-->
@@ -44,6 +48,7 @@
   <script src = './controllers/go.js'></script>
   <script src = './controllers/addGolink.js'></script>
   <script src = './controllers/blog.js'></script>
+  <script src = './controllers/createPost.js'></script>
   <script src = './controllers/points.js'></script>
   <script src = './controllers/parse.js'></script>
   <script src = './controllers/attendance.js'></script>
@@ -63,7 +68,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#/">
-        <span><img src = './logo.png' style = 'height:35px'></span>
+        <span><img src = './images/logo.png' style = 'height:35px'></span>
         <span>[PBL][MP]</span>
       </a>
     </div>

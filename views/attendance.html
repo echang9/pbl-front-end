@@ -2,13 +2,20 @@
 .unconfirmed{
   opacity:0.3;
 }
+.none {
+  opacity: 0.5;
+  color: blue;
+}
 .chair{
   opacity:1;
-    color:green;
+  color:green;
 }
 .cm{
   opacity:0.5;
-    color:blue;
+  color:blue;
+}
+.event-member:hover{
+  cursor:pointer;
 }
 </style>
 
@@ -25,9 +32,9 @@
     <input type = 'text' class = 'form-control' placeholder = 'Search Events' ng-model = 'eventSearch'>
   </div>
   <div ng-repeat = 'event in events | filter:eventSearch'>
-    <h3>{{event.name}}</h3>
+    <h3>{{event.name}} ({{event.start_time}})</h3>
     <ul>
-      <li  ng-repeat = 'email in coCMs | filter:memberSearch' class = '{{attendedEvent(email, event.google_id)}}'>{{email}}</li>
+      <li  ng-repeat = 'email in coCMs | filter:memberSearch' class = 'event-member {{attendedEvent(email, event.google_id)}}' ng-click = 'recordAttendance(event, email)'>{{email}}</li>
     </ul>
 
   </div>

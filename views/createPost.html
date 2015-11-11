@@ -1,0 +1,24 @@
+<style type = 'text/css'>
+.post-tag{
+  margin:5px;
+}
+#tags{
+  margin-top:10px;
+}
+.selected{
+  background-color:black;
+}
+</style>
+<h1>Create Blogpost</h1>
+
+<div>
+  <input type = 'text' class = 'form-control' ng-model = 'title' placeholder = 'Post Title'>
+</div>
+
+<div id = 'tags'>
+  <div ng-repeat = 'tag in tags' ng-click = 'toggleTag(tag)' class = 'post-tag label label-material-purple-500' id = '{{tag}}-tag'>{{tag}}</div>
+</div>
+
+<h2>{{title}}</h2>
+<textarea ng-model = 'content'></textarea>
+<button class = 'btn btn-material-blue-500'>Save Post</button>

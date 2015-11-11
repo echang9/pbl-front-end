@@ -1,19 +1,15 @@
 
 
-app.service("TablingService",  function($http) {
+app.service("TablingService",  function($http, $rootScope) {
     var serviceInstance = {};
-    serviceInstance.getTablingSchedule = function(callback){
-      query = new Parse.Query(TablingSlot);
-      query.limit(MAXINT);
-      query.find({
-        success:function(data){
-         callback(data); 
-        }
-      });
-    }; 
     serviceInstance.tablingSlots = function(callback){
+        if($rootScope.tablingSlots != null){
+          callback($rootScope.tablingSlots);
+          return;
+        }
         $http.get(tokenizedURL(ROOT_URL+'/tabling_slots'))
             .success(function(data){
+              $rootScope.tablingSlots = data;
                 callback(data);
             });
     };

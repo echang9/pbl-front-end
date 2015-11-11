@@ -1,5 +1,5 @@
 
-app.controller('AttendanceController', function($scope, $http, PointsService, UtilService) {
+app.controller('AttendanceController', function($scope, $http, MemberService, PointsService, UtilService) {
   $scope.loadingGif = UtilService.loadingGif;
   $scope.loading=false;
   $scope.message = 'hi there from attendance controller';
@@ -22,4 +22,19 @@ app.controller('AttendanceController', function($scope, $http, PointsService, Ut
     }
     return 'unconfirmed';
   };
+  $scope.recordAttendance = function(event, email){
+    console.log('recording attendance');
+    console.log(event);
+    console.log(email);
+    data = {'email': email, 'event_id': event.google_id};
+
+    $http.post(tokenizedURL(ROOT_URL+'/record_attendance'), data)
+      .success(function(data){
+        console.log('successfully saved event member');
+      });
+  };
+  MemberService.memberHash(function(data){
+    console.log('this is the member hash');
+    console.log(data);
+  });
 });

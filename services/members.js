@@ -1,4 +1,4 @@
-app.service("MemberService",  function($http) {
+app.service("MemberService",  function($http, $rootScope) {
     var serviceInstance = {};
     serviceInstance.parseCurrentMembers = function(callback){
       query = new Parse.Query(Member);
@@ -26,18 +26,30 @@ app.service("MemberService",  function($http) {
         }
       });
     }
+
     // below are using PBL API
     serviceInstance.currentMembers = function(callback){
+      if($rootScope.currentMembers != null){
+        callback($rootScope.currentMembers);
+        return;
+      }
         $http.get(tokenizedURL(ROOT_URL+'/current_members'))
             .success(function(data){
+              $rootScope.currentMembers = data;
                 callback(data);
             });
     };
+
     serviceInstance.memberHash = function(callback){
-        $http.get(tokenizedURL(ROOT_URL+'/member_email_hash'))
-            .success(function(data){
-                callback(data);
-            });
+      if($rootScope.memberHash != null){
+        callback($rootScope.memberHash);
+        return;
+      }
+      $http.get(tokenizedURL(ROOT_URL+'/member_email_hash'))
+          .success(function(data){
+            $rootScope.memberHash = data;
+              callback(data);
+          });
     };
     serviceInstance.getCommitteeHash = function(data){
         h = {};
