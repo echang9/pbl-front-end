@@ -36,8 +36,12 @@ app.config(function($routeProvider) {
             controller  : 'BlogController'
         })
         .when('/createPost', {
-            templateUrl : 'views/createPost.html',
-            controller  : 'CreatePostController'
+            templateUrl : 'views/editPost.html',
+            controller  : 'EditPostController'
+        })
+        .when('/editPost', {
+            templateUrl : 'views/editPost.html',
+            controller  : 'EditPostController'
         })
         .when('/golinks', {
             templateUrl : 'views/golinks.html',

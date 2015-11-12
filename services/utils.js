@@ -12,5 +12,17 @@ app.service("UtilService",  function($http) {
     url = url+hash;
     return url;
   };
+  serviceInstance.getParameterByName =  function(name, callback){
+    param = getParameterByName(name);
+    console.log('param was '+param);
+    callback(param);
+  }
+  function getParameterByName(name) {
+    console.log('callingwith name '+name);
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  } 
   return serviceInstance;
 });

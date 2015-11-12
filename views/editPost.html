@@ -1,0 +1,46 @@
+<style type = 'text/css'>
+#post-content{
+  min-height:500px;
+}
+.post-tag{
+  margin:5px;
+}
+#tags{
+  margin-top:10px;
+}
+.selected{
+  background-color:black;
+}
+</style>
+
+<h1>{{title}}</h1>
+
+<div class = 'input-group'>
+  <span class = 'input-group-addon'>Title</span>
+  <input ng-model = 'post.title' type = 'text' placeholder = 'Post Title' class = 'form-control'>
+</div>
+
+<div class = 'input-group'>
+  <span class = 'input-group-addon'>View Permissions</span>
+  <select ng-model = 'post.view_permissions' class = 'form-control'>
+    <option ng-repeat = 'p in permissionsList' selected = 'selected'>{{p}}</option>
+  </select>
+</div>
+
+<div class = 'input-group'>
+  <span class = 'input-group-addon'>Edit Permissions</span>
+  <select ng-model = 'post.edit_permissions' class = 'form-control' id = 'edit-permissions'>
+    <option ng-repeat = 'p in permissionsList' selected = 'selected'>{{p}}</option>
+  </select>
+</div>
+
+<div id = 'tags'>
+  <div ng-repeat = 'tag in tags' ng-click = 'toggleTag(tag)' class = 'post-tag label label-material-purple-500' id = '{{tag}}-tag'>{{tag}}</div>
+</div>
+
+
+<h2>{{post.title}}</h2>
+<textarea id = 'post-content'></textarea>
+
+<button id = 'save-btn' class = 'btn btn-material-blue-500'>Save Post</button>
+<button id = 'save-btn' class = 'btn btn-material-red-500' ng-show = 'editing == true' ng-click = 'deletePost()'>Delete Post</button>

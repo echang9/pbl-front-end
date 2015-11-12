@@ -8,19 +8,47 @@
 #search-input{
   max-width:300px;
 }
+#filter-dropdown{
+  max-width:300px;
+}
+#golinks{
+  margin-top:15px;
+}
 </style>
 <h1>Go Links</h1>
 
-<input ng-keypress = '($event.which === 13)?searchGolinks(searchTerm):0' ng-model = 'searchTerm' type = 'text' class = 'form-control' placeholder = 'search' id = 'search-input'>
+<div id = 'search-and-filters'>
+
+  <input ng-keypress = '($event.which === 13)?searchGolinks(searchTerm):0' ng-model = 'searchTerm' type = 'text' class = 'form-control' placeholder = 'search' id = 'search-input'>
+
+  <select ng-model = 'filter' class = 'form-control' id = 'filter-dropdown'>
+    <option selected = 'selected' ng-repeat = 'option in filterOptions'>{{option}}</option>
+  </select>
+
+</div>
 
 <div ng-show = 'golinks == null || loading == true'>
   <img src = '{{loadingGif}}' class = 'loading-gif'>
 </div>
 
-<a href = '#/addGolink'><button class = 'btn btn-material-blue-500'>Add Link</button></a>
-<div class = '' ng-show = 'golinks != null'>
-  <div class = 'golink-div' ng-repeat = 'golink in golinks'>
-    <div><a href = '{{golink.url}}'>{{golink.key}}</a> {{golink.description}} ({{golink.num_clicks}})</div>
-    <div>Created by {{golink.member_email}} at  {{golink.createdAt}}</div>
-  </div>
+<div>
+  <a href = '#/addGolink'>
+    <button class = 'btn btn-material-blue-500'>Add Link</button>
+  </a>
+</div>
+
+
+
+
+<div id = 'golinks' ng-show = 'golinks != null'>
+  <table>
+    <tr ng-repeat = 'golink in golinks'>
+      <td class = 'type-td'></td>
+      <td class = 'clicks-td'>{{golink.num_clicks}}</td>
+      <td class = 'key-td'><a href = '{{golink.url}}'>{{golink.key}}</a></td>
+      <td class = 'description-td'>{{golink.description}}</td>
+      <td class = 'author-td'>{{golink.member_email}}</td>
+      <td class = 'time-td'>{{golink.createdAt}}</td>
+    </tr>
+  </table>
 </div>

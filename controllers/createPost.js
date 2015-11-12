@@ -11,9 +11,6 @@ app.controller('CreatePostController', function($scope, $http, BlogService, Util
   }
 
 
-
-
-
   tinymce.init({
       selector: "textarea",
       theme: "modern",

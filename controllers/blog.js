@@ -6,11 +6,15 @@ app.controller('BlogController', function($scope, $http, BlogService, UtilServic
   function init(){
     BlogService.allPosts(function(data){
       $scope.posts = data;
-      $scope.$digest();
     });
   }
   init();
   $scope.filterPost = function(post){
-    $scope.searchTerm = post.title;
+    if($scope.searchTerm != post.title){
+      $scope.searchTerm = post.title;
+    }
+    else{
+      $scope.searchTerm = '';
+    }
   }
 });

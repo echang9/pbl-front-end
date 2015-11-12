@@ -2,12 +2,20 @@
 .post-content{
   margin-left:50px;
 }
+.label-material-purple-500{
+  margin:2px;
+}
+.post-metadata{
+    padding:5px;
+    margin:5px;
+}
 </style>
 <h1>Blog</h1>
 
-<a href = '#/createPost'>
+<a href = '/#/createPost'>
   <button class = 'btn btn-material-blue-500'>Create Post</button>
 </a>
+
 <div ng-show = 'posts == null || loading == true'>
   <img src = '{{loadingGif}}' class = 'loading-gif'>
 </div>
@@ -27,6 +35,10 @@
           <div ng-repeat = 'tag in post.tags' class = 'label label-material-purple-500'>{{tag}}</div>
           <div>Author: {{post.author}}</div>
           <div>Timestamp: {{post.timestamp}} </div>
+          <div><a href = '?id={{post.objectId}}#/editPost'>Edit Post</a></div>
+          <div><a href = '#/emailPost?id={{post.objectId}}'>Email Post</a></div>
+          <div><a href ='javascript:void(0);' ng-click = 'pinPost(post)'>Pin Post</a></div>
+  
         </div>
 
         <div class = 'post-content' ng-bind-html = 'post.content | to_trusted'></div>

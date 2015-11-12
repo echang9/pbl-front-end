@@ -19,6 +19,23 @@ app.service("GoService",  function($http) {
                 callback(data);
             });
     };
+
+    serviceInstance.myLinks = function(callback){
+        $http.get(tokenizedURL(ROOT_URL+'/my_links'))
+            .success(function(data){
+                callback(data);
+            });
+    };
+
+    serviceInstance.popularGolinks = function(callback){
+        $http.get(tokenizedURL(ROOT_URL+'/popular_golinks'))
+            .success(function(data){
+                callback(data);
+            });
+    };
+
+
+
     serviceInstance.searchGolinks = function(searchTerm, callback){
         $http.get(tokenizedURL(ROOT_URL+'/search_golinks?searchTerm='+encodeURIComponent(searchTerm)))
             .success(function(data){

@@ -3,6 +3,16 @@ body{
   margin-left:50px !important;
   margin-right:50px !important;
 }
+table{
+  font-weight:300;
+  font-family:RobotoDraft,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+footer{
+  margin-top:25px;
+  display:block;
+  clear:both;
+}
 
 .navbar.navbar, .navbar-default.navbar{
   background-color:black !important;
