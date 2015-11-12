@@ -13,15 +13,33 @@ app.service("TablingService",  function($http, $rootScope) {
                 callback(data);
             });
     };
+
+    serviceInstance.tablingHash = function(slots){
+      h = {};
+      seen = new Set();
+      for(var i=0;i<slots.length;i++){
+        slot = slots[i];
+        day = dayInt(slot.time);
+        if(!seen.has(day)){
+          seen.add(day);
+          h[day] = [];
+        }
+        h[day].push(slot);
+      }
+      return h;
+    };
+
+    serviceInstance.schedule = function(callback){
+      $http.get(tokenizedURL(ROOT_URL+'/schedule'))
+        .success(function(data){
+          callback(data);
+        });
+    };
     serviceInstance.timeString = function(time){
         return timeToString(time);
     }
     serviceInstance.dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     serviceInstance.tablingDays = [0,1,2,3,4];
-
-    serviceInstance.getDay = function(time){
-        return Math.floor(time/24);
-    }
 
     return serviceInstance;
 });
@@ -44,3 +62,8 @@ function dayString(time){
     days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return days[Math.floor(time / 24)];
 }
+
+function dayInt(time){
+  return Math.floor(time/24);
+}
+

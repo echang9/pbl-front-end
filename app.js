@@ -27,6 +27,14 @@ app.config(function($routeProvider) {
             templateUrl : 'views/tabling.html',
             controller  : 'TablingController'
         })
+        .when('/schedule', {
+            templateUrl : 'views/schedule.html',
+            controller  : 'ScheduleController'
+        })
+        .when('/switchTabling', {
+            templateUrl : 'views/switchTabling.html',
+            controller  : 'TablingController'
+        })
         .when('/points', {
             templateUrl : 'views/points.html',
             controller  : 'PointsController'

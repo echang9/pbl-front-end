@@ -4,21 +4,38 @@
     clear:both;
       display:block;
 }
+.tabling-day{
+  margin:5px;
+  float:left;
+  width:15%;
+}
+.tabling-slot{
+  margin: 5px;
+}
+.label-material-black{
+  background-color:black;
+}
 </style>
 <h1>Tabling</h1>
 
-<button class = 'btn btn-material-blue-500'>Mark Schedule</button>
-<button class = 'btn btn-material-purple-500'>Switch Tabling</button>
-<div ng-show = 'memberHash == null || tablingSlots == null'>
+<a href = '/#/schedule'>
+  <button class = 'btn btn-material-blue-500'>Mark Schedule</button>
+</a>
+<a href = '/#/switchTabling'>
+  <button class = 'btn btn-material-purple-500'>Switch Tabling</button>
+</a>
+<div ng-show = 'memberHash == null || tablingHash == null'>
   <img src = '{{loadingGif}}' class = 'loading-gif'>
 </div>
 
-<div id = 'tablingSchedule' ng-show='memberHash != null && tablingSlots != null'>
-    <div class = 'tabling-slot' ng-repeat = 'slot in tablingSlots | orderBy:"time"'>
-        <div class = 'label label-primary'>{{slot.time}}</div>
-        <div ng-repeat = 'email in slot.member_emails'>
-          {{memberHash[email].name}}
-        </div>
-
+<div id = 'tablingSchedule' ng-show='memberHash != null && tablingHash != null'>
+  <div ng-repeat = 'day in tablingDays' class = 'tabling-day'>
+    <div ng-repeat = 'slot in tablingHash[day]' class = 'tabling-slot'>
+      <div class = 'label label-material-blue-500'>{{timeString(slot.time)}}</div>
+      <div>
+        <div ng-repeat = 'email in slot.member_emails'>{{memberHash[email].name}}</div>
+      </div>
     </div>
+  </div>
+      
 </div>
