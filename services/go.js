@@ -34,16 +34,15 @@ app.service("GoService",  function($http) {
             });
     };
 
-
-
     serviceInstance.searchGolinks = function(searchTerm, callback){
         $http.get(tokenizedURL(ROOT_URL+'/search_golinks?searchTerm='+encodeURIComponent(searchTerm)))
             .success(function(data){
                 callback(data);
             });
     };
-    serviceInstance.createGolink = function(post_data, callback){
-      $http.post(tokenizedURL(ROOT_URL+'/create_golink'), post_data)
+
+    serviceInstance.saveGolink = function(golink, callback){
+      $http.post(tokenizedURL(ROOT_URL+'/save_golink'), golink)
             .success(function(data){
                 callback(data);
             });

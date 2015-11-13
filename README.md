@@ -2,7 +2,7 @@
 # PBL Frontend
 
 Frontend of PBL's members portal
-![PBL Logo](./logo.png)
+![PBL Logo](./images/logo.png)
 
 ## Dependencies
 
@@ -47,7 +47,7 @@ see ./lib
 
 # TODO
 
-Working on fancifying everything. Switch over to this Fall 2015. Halp.
+Working on fancifying everything. Switching over to this Fall 2015. 
 
 
 
