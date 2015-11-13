@@ -5,9 +5,11 @@ app.controller('EditPostController', function($scope, $http, BlogService, UtilSe
   $scope.message = 'edit post';
   $scope.tags = BlogService.tags;
   $scope.permissionsList = BlogService.permissionsList;
+
   //get post id from url parameter
   UtilService.getParameterByName("id", function(data){
-    if(data == null || data == ''){
+    href = window.location.href.toString();
+    if(href.indexOf('createPost') != -1 || data == null || data == ''){
       console.log('there is not post');
       post = {};
       post.title = '';
