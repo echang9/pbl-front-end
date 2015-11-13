@@ -3,6 +3,15 @@ app.controller('AttendanceController', function($scope, $http, MemberService, Po
   $scope.loadingGif = UtilService.loadingGif;
   $scope.loading=false;
   $scope.message = 'hi there from attendance controller';
+
+  MemberService.memberHash(function(hash){
+    $scope.me = hash[authEmail];
+    if($scope.me == 'cm'){
+      // filter out stuff
+    }
+
+  });  
+  
   // if chair, load entire committees attendance
   $http.get(tokenizedURL(ROOT_URL+'/attendance'))
     .success(function(data){
@@ -13,6 +22,7 @@ app.controller('AttendanceController', function($scope, $http, MemberService, Po
    PointsService.getEvents(function(data){
     $scope.events = data;
    }); 
+
   $scope.attendedEvent = function(email, id){
     attended = $scope.attendance[email];
     for(var i=0;i<attended.length;i++){
@@ -20,21 +30,23 @@ app.controller('AttendanceController', function($scope, $http, MemberService, Po
         return attended[i].type;
       }
     }
-    return 'unconfirmed';
+    return 'none';
   };
-  $scope.recordAttendance = function(event, email){
-    console.log('recording attendance');
-    console.log(event);
-    console.log(email);
-    data = {'email': email, 'event_id': event.google_id};
 
+  $scope.recordAttendance = function($event, event, email){
+    console.log('recording attendance');
+    data = {'email': email, 'event_id': event.google_id};
+    clickedElem = $event.target;
+    console.log('clicked elem was ');
+    console.log(clickedElem);
     $http.post(tokenizedURL(ROOT_URL+'/record_attendance'), data)
       .success(function(data){
         console.log('successfully saved event member');
+        console.log(data);
+        $(clickedElem).removeClass('chair');
+        $(clickedElem).removeClass('none');
+        $(clickedElem).removeClass('cm');
+        $(clickedElem).addClass(data);
       });
   };
-  MemberService.memberHash(function(data){
-    console.log('this is the member hash');
-    console.log(data);
-  });
 });

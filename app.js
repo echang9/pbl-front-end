@@ -13,6 +13,8 @@ app.filter('to_trusted', ['$sce', function($sce){
         return $sce.trustAsHtml(text);
     };
 }]);
+
+
 app.config(function($routeProvider) {
     $routeProvider
         .when('/', {
