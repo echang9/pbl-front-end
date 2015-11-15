@@ -12,6 +12,20 @@ app.service("BlogService",  function($http) {
                 callback(data);
             });
     };
+    //serviceInstance.reversePosts = function(callback){
+        //$http.get(tokenizedURL(ROOT_URL+'/all_blogposts?reverse=true'))
+            //.success(function(data){
+                //callback(data);
+            //});
+    //};
+
+    serviceInstance.pinnedPosts = function(callback){
+        $http.get(tokenizedURL(ROOT_URL+'/pinned_blogposts'))
+            .success(function(data){
+                callback(data);
+            });
+    };
+
 
     serviceInstance.savePost = function(post, callback){
      $http.post(tokenizedURL(ROOT_URL+'/save_blogpost'), post)

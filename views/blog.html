@@ -9,6 +9,9 @@
     padding:5px;
     margin:5px;
 }
+.selected{
+  background-color:black;
+}
 </style>
 <h1>Blog</h1>
 
@@ -22,12 +25,26 @@
 
 <div ng-show = 'posts != null'>
   <div class = 'col-md-4'>
+
+
     <input type = 'text' class = 'form-control' ng-model = 'searchTerm' placeholder = 'Search Blogposts'>
+
+    <div id = 'filter-select'>
+      <select ng-model = 'filter' class = 'form-control'>
+        <option selected = 'selected' ng-repeat = 'option in filterOptions'>{{option}}</option>
+      </select>
+    </div>
+
     <div ng-repeat = 'post in posts | filter:searchTerm'>
       <a href = 'javascript:void(0);' ng-click = 'filterPost(post)'>{{post.title}}</a>
+
     </div>
   </div>
   <div class = 'col-md-8'>
+
+
+      <div ng-repeat = 'tag in tags' ng-click = 'filterTags(tag)' class = 'tag label label-material-purple-500'>{{tag}}</div>
+
     <div ng-repeat = 'post in posts | filter:searchTerm'>
       <h2 id = '{{post.id}}'>{{post.title}}</h2>
 
